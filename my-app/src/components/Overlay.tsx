@@ -1,19 +1,45 @@
 export default function Overlay() {
   return (
     <div
-      className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white text-center px-4 pointer-events-none"
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: 10,           // ✅ 다른 요소보다 위에
+        pointerEvents: "none", // ✅ 클릭 이벤트는 차단
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        color: "white",
+        padding: "1rem",
+      }}
     >
-      <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg">
-        Welcome to My Galaxy
+      <h1 style={{ fontSize: "3rem", fontWeight: "bold", textShadow: "0 0 10px #000" }}>
+        Minji's Portfolio
       </h1>
-      <p className="mt-4 text-lg md:text-xl drop-shadow-lg">
-        별처럼 빛나는 당신의 이야기를 담아보세요.
+      <p style={{ marginTop: "1rem", maxWidth: "400px" }}>
+        안녕하세요! ✨ 프론트엔드 개발자 Minji입니다.  
+        우주처럼 무한한 가능성을 담아 멋진 웹을 만듭니다!
       </p>
-      <button
-        className="mt-6 px-6 py-3 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition pointer-events-auto"
+      <a
+        href="mailto:minji@example.com"
+        style={{
+          marginTop: "2rem",
+          padding: "0.75rem 2rem",
+          backgroundColor: "white",
+          color: "black",
+          borderRadius: "9999px",
+          fontWeight: "bold",
+          textDecoration: "none",
+          pointerEvents: "auto", // ✅ 버튼은 클릭 가능
+        }}
       >
-        시작하기
-      </button>
+        연락하기
+      </a>
     </div>
   );
 }
