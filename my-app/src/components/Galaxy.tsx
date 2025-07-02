@@ -1,8 +1,8 @@
 import * as THREE from "three";
 import { getRandomInt, gaussianRandom } from "../utils/random";
 import Star from "./Star";
-import { useControls } from "leva";
 
+// 나선 좌표 계산 함수
 function spiral(
   x: number,
   y: number,
@@ -19,29 +19,18 @@ function spiral(
 }
 
 export default function Galaxy() {
-  const {
-    SPIRAL,
-    ARM_X_MEAN,
-    ARM_X_DIST,
-    ARM_Z_MEAN,
-    ARM_Z_DIST,
-    GALAXY_THICKNESS,
-    NUM_STARS,
-    STAR_MIN_SIZE,
-    STAR_MAX_SIZE,
-    ARMS,
-  } = useControls({
-    SPIRAL: 3.5,
-    ARM_X_MEAN: 1500,
-    ARM_X_DIST: 3000,
-    ARM_Z_MEAN: 900,
-    ARM_Z_DIST: 1000,
-    GALAXY_THICKNESS: 300,
-    NUM_STARS: 3000,
-    STAR_MIN_SIZE: 5,
-    STAR_MAX_SIZE: 15,
-    ARMS: 2,
-  });
+  // 👉 여기에서 더 이상 useControls 사용하지 않음
+
+  const SPIRAL = 3.5;
+  const ARM_X_MEAN = 1500;
+  const ARM_X_DIST = 3000;
+  const ARM_Z_MEAN = 900;
+  const ARM_Z_DIST = 1000;
+  const GALAXY_THICKNESS = 300;
+  const NUM_STARS = 3000;
+  const STAR_MIN_SIZE = 5;
+  const STAR_MAX_SIZE = 15;
+  const ARMS = 2;
 
   const stars = [];
 
