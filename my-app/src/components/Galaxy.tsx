@@ -1,8 +1,8 @@
 import * as THREE from "three";
 import { getRandomInt, gaussianRandom } from "../utils/random";
 import Star from "./Star";
+import { useMemo } from "react";
 
-// 나선 좌표 계산 함수
 function spiral(
   x: number,
   y: number,
@@ -19,8 +19,7 @@ function spiral(
 }
 
 export default function Galaxy() {
-  // 👉 여기에서 더 이상 useControls 사용하지 않음
-
+  // 고정 상수
   const SPIRAL = 3.5;
   const ARM_X_MEAN = 1500;
   const ARM_X_DIST = 3000;
@@ -32,22 +31,25 @@ export default function Galaxy() {
   const STAR_MAX_SIZE = 15;
   const ARMS = 2;
 
-  const stars = [];
-
-  for (let arm = 0; arm < ARMS; arm++) {
-    for (let star = 0; star < NUM_STARS / ARMS; star++) {
-      const size = getRandomInt(STAR_MIN_SIZE, STAR_MAX_SIZE);
-      const pos = spiral(
-        gaussianRandom(ARM_X_MEAN, ARM_X_DIST),
-        gaussianRandom(0, GALAXY_THICKNESS),
-        gaussianRandom(ARM_Z_MEAN, ARM_Z_DIST),
-        (arm * 2 * Math.PI) / ARMS,
-        SPIRAL,
-        ARM_X_DIST
-      );
-      stars.push(<Star key={`${arm}-${star}`} position={pos} size={size} />);
+  // ⭐ useMemo로 한 번만 생성
+  const stars = useMemo(() => {
+    const s = [];
+    for (let arm = 0; arm < ARMS; arm++) {
+      for (let star = 0; star < NUM_STARS / ARMS; star++) {
+        const size = getRandomInt(STAR_MIN_SIZE, STAR_MAX_SIZE);
+        const pos = spiral(
+          gaussianRandom(ARM_X_MEAN, ARM_X_DIST),
+          gaussianRandom(0, GALAXY_THICKNESS),
+          gaussianRandom(ARM_Z_MEAN, ARM_Z_DIST),
+          (arm * 2 * Math.PI) / ARMS,
+          SPIRAL,
+          ARM_X_DIST
+        );
+        s.push(<Star key={`${arm}-${star}`} position={pos} size={size} />);
+      }
     }
-  }
+    return s;
+  }, []);
 
   return <group>{stars}</group>;
 }
