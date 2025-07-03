@@ -1,0 +1,18 @@
+section {
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  max-width: 600px;  /* ✅ 본문 최대 폭 제한 */
+  margin: 0 auto;    /* ✅ 가운데 정렬 */
+}
+section img {
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+section a {
+  color: #00aaff;
+  text-decoration: none;
+}
+section a:hover {
+  text-decoration: underline;
+}

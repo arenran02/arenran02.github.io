@@ -34,33 +34,42 @@ export default function App() {
 
   return (
     <Canvas
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-      }}
-      camera={{
-        position: [20000, 20000, 20000],
-        far: 100000,
-      }}
-    >
-      <AnimatedCamera onFinish={() => setControlsEnabled(true)} />
-      <color attach="background" args={["#000"]} />
-      <ambientLight intensity={5} />
-      {/* <OrbitControls enabled={controlsEnabled} /> */}
-      <OrbitControls enabled={controlsEnabled} enableZoom={false} /> 
-      <Galaxy />
+  style={{
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+  }}
+  camera={{
+    position: [20000, 20000, 20000],
+    far: 100000,
+  }}
+>
+  {/* ✅ 애니메이션 카메라 */}
+  <AnimatedCamera onFinish={() => setControlsEnabled(true)} />
+  <color attach="background" args={["#000"]} />
+  <ambientLight intensity={5} />
+  <OrbitControls enabled={controlsEnabled} enableZoom={false} /> 
+  <Galaxy />
 
-    <ScrollControls pages={4} damping={0.3}>
-      <Scroll html>
+  {/* ✅ ScrollControls (글자 영역) */}
+  <ScrollControls pages={4} damping={0.3}>
+    <Scroll html>
+      <section style={{ height: '100vh' }}>
         <ProfileSection />
+      </section>
+      <section style={{ height: '100vh' }}>
         <ProjectBoard />
+      </section>
+      <section style={{ height: '100vh' }}>
         <GuestbookBoard />
+      </section>
+      <section style={{ height: '100vh' }}>
         <CareerBoard />
-      </Scroll>
-    </ScrollControls>
-    </Canvas>
+      </section>
+    </Scroll>
+  </ScrollControls>
+</Canvas>
   );
 }
