@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { getRandomInt } from "../utils/random";
+import { getRandomInt } from "../../utils/random";
 
 interface PropsType {
   position: THREE.Vector3;

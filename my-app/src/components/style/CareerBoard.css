@@ -1,0 +1,11 @@
+.career-board {
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.career-board img {
+  margin: 1rem 0;
+  border-radius: 8px;
+}

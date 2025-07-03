@@ -1,13 +1,13 @@
 import "./App.css";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, ScrollControls, Scroll } from "@react-three/drei";
-import Galaxy from "./components/Galaxy";
+import Galaxy from "./components/galaxy/Galaxy";
 import { useRef, useState } from "react";
 import * as THREE from "three";
-import ProfileSection from "./components/ProfileSection";
-import ProjectBoard from "./components/ProjectBoard";
-import GuestbookBoard from "./components/GuestbookBoard";
-import CareerBoard from "./components/CareerBoard";
+import ProfileSection from "./components/sections/ProfileSection";
+import ProjectBoard from "./components/sections/ProjectBoard";
+import GuestbookBoard from "./components/sections/GuestbookBoard";
+import CareerBoard from "./components/sections/CareerBoard";
 
 function AnimatedCamera({ onFinish }: { onFinish: () => void }) {
   const { camera } = useThree();
@@ -46,26 +46,24 @@ export default function App() {
     far: 100000,
   }}
 >
-  {/* ✅ 애니메이션 카메라 */}
   <AnimatedCamera onFinish={() => setControlsEnabled(true)} />
   <color attach="background" args={["#000"]} />
   <ambientLight intensity={5} />
   <OrbitControls enabled={controlsEnabled} enableZoom={false} /> 
-  <Galaxy />
+  <Galaxy position={[500, 0, 0]} />
 
-  {/* ✅ ScrollControls (글자 영역) */}
   <ScrollControls pages={4} damping={0.3}>
     <Scroll html>
-      <section style={{ height: '100vh' }}>
+      <section style={{ minHeight: '100vh' }}>
         <ProfileSection />
       </section>
-      <section style={{ height: '100vh' }}>
+      <section style={{ minHeight: '100vh' }}>
         <ProjectBoard />
       </section>
-      <section style={{ height: '100vh' }}>
+      <section style={{ minHeight: '100vh' }}>
         <GuestbookBoard />
       </section>
-      <section style={{ height: '100vh' }}>
+      <section style={{ minHeight: '100vh' }}>
         <CareerBoard />
       </section>
     </Scroll>

@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { getRandomInt, gaussianRandom } from "../utils/random";
+import { getRandomInt, gaussianRandom } from "../../utils/random";
 import Star from "./Star";
 import { useMemo } from "react";
 

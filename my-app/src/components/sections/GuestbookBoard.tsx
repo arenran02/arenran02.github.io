@@ -1,5 +1,6 @@
 import React from "react";
-import "./board.css"; // 필요한 경우 스타일 파일 따로 만들어 import
+import "../style/GuestbookBoard.css"
+
 
 
 export default function GuestbookBoard() {

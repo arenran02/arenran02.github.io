@@ -1,0 +1,21 @@
+.project-board {
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-board img {
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+
+.project-board a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.project-board a:hover {
+  text-decoration: underline;
+}

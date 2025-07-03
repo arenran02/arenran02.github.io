@@ -1,6 +1,5 @@
 import React from "react";
-import "./ProfileSection.css"; // 필요한 경우 스타일 파일 따로 만들어 import
-
+import "../style/ProfileSection.css"
 export default function ProfileSection() {
   return (
     <section className="profile-section">
