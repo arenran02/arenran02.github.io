@@ -50,7 +50,7 @@ export default function App() {
   <color attach="background" args={["#000"]} />
   <ambientLight intensity={5} />
   <OrbitControls enabled={controlsEnabled} enableZoom={false} /> 
-  <Galaxy position={[500, 0, 0]} />
+  <Galaxy/>
 
   <ScrollControls pages={5} damping={0.3}>
     <Scroll html>

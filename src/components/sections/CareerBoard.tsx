@@ -1,4 +1,3 @@
-import React from "react";
 import "../style/CareerBoard.css"
 
 export default function CareerBoard() {

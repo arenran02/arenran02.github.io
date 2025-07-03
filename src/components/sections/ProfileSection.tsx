@@ -1,4 +1,3 @@
-import React from "react";
 import "../style/ProfileSection.css"
 export default function ProfileSection() {
   return (
