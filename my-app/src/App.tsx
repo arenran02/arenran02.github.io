@@ -52,7 +52,7 @@ export default function App() {
   <OrbitControls enabled={controlsEnabled} enableZoom={false} /> 
   <Galaxy position={[500, 0, 0]} />
 
-  <ScrollControls pages={4} damping={0.3}>
+  <ScrollControls pages={5} damping={0.3}>
     <Scroll html>
       <section style={{ minHeight: '100vh' }}>
         <ProfileSection />
